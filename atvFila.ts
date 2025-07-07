@@ -19,7 +19,7 @@ do {
    console.log("*                                   *");
    console.log("*   1 - Adicionar cliente na fila   * ");
    console.log("*   2 - Lista de clientes na fila   *");
-   console.log("*   3 - Retirar clientes da fila    *");
+   console.log("*   3 - Retirar cliente da fila    *");
    console.log("*   0 - sair                        *");
    console.log("*                                   *");
    console.log("* * * * * * * * * * * * * * * * * * *");
@@ -35,9 +35,13 @@ switch (opcao) {
         fila.printQueue(); // ver lista de clientes
         break;
     case 3:
-        fila.dequeue(); //Termina o atendimento do primeiro cliente que chegou
-        console.log("Cliente foi chamado")
-        break;
+        if (fila.isEmpty()) {
+        console.log("Fila vazia!");
+      } else {
+        fila.dequeue(); // Termina o atendimento do primeiro cliente que chegou
+        console.log("Cliente foi chamado!");
+      }
+      break;
     case 0:
         console.log("Programa finalizado!");
         rodando = false;
